@@ -1,0 +1,2 @@
+# transfertgate
+la « Gate dimension n », dont le fonctionnement est bien trop compliqué pour que les humains de notre réalité le comprenne, s’appuie sur le glitch, la fracture électro-photonique qui dégage dans certaines conditions une énergie phénoménale permettant de naviguer dans les anfractuosités des réalités passées et futures. Elle est fabriquée à base de télés glitchées, de caméras et d'un patch Pure Data
