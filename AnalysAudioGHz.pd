@@ -1,0 +1,302 @@
+#N canvas 502 105 867 690 10;
+#X obj 6 -7 cnv 15 400 300 empty empty empty 20 12 0 14 -257472 -66577
+0;
+#X obj 50 137 bonk~;
+#X obj 50 177 unpack f f f f f f f f f f f;
+#X floatatom 152 100 5 0 0 0 - - -;
+#X obj 51 120 *~ 1;
+#X floatatom 70 105 5 0 0 0 - - -;
+#X obj 85 2 vsl 12 100 0 5 0 0 empty empty empty 0 -8 0 8 -195568 -1
+-1 1900 1;
+#N canvas 0 0 1016 722 bonkmsg 0;
+#X msg 96 329 bang;
+#X msg 96 146 learn 1;
+#X msg 96 206 learn 0;
+#X msg 91 388 print;
+#X msg 96 176 learn 10;
+#X msg 96 236 forget;
+#X msg 96 266 write templates.txt;
+#X msg 96 296 read templates.txt;
+#X msg 96 22 thresh 6 50;
+#X msg 96 82 mask 4 0.7;
+#X msg 96 116 debounce 0;
+#X msg 96 52 minvel 10;
+#X msg 91 358 debug 0;
+#X obj 32 384 outlet;
+#X text 201 18 Set low and high thresholds. Signal growth must exceed
+the high one and then fall to the low one to make an attack.;
+#X text 201 51 Minimum velocity to output (quieter notes are ignored.)
+;
+#X text 200 119 Minimum time (msec) between attacks;
+#X text 200 70 Describes how energy in each frequency band masks later
+energy in the band. Here the masking is total for 4 analysis periods
+and then drops by 0.7 each period.;
+#X text 198 144 Forget all templates and start learning new ones. The
+argument gives the number of times you will hit each instrument (10
+recommended.) Turn on the output volume above for audible feedback
+as you train Bonk. "Learn 0" exits learn mode.;
+#X text 198 228 Forget the last template. In Learn mode \, use "forget"
+to erase and record over a template.;
+#X text 263 268 Write templates to a file in text-editable format.
+;
+#X text 264 298 Read templates from a file.;
+#X text 206 393 Print out all settings and templates.;
+#X text 206 326 Poll the current spectrum via "raw" outlet \, You can
+set a very high threshold if you don't want attacks mixed in.;
+#X text 206 366 turn debugging on or off.;
+#X connect 0 0 13 0;
+#X connect 1 0 13 0;
+#X connect 2 0 13 0;
+#X connect 3 0 13 0;
+#X connect 4 0 13 0;
+#X connect 5 0 13 0;
+#X connect 6 0 13 0;
+#X connect 7 0 13 0;
+#X connect 8 0 13 0;
+#X connect 9 0 13 0;
+#X connect 10 0 13 0;
+#X connect 11 0 13 0;
+#X connect 12 0 13 0;
+#X restore 95 137 pd bonkmsg;
+#X obj 217 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 1035 1;
+#X obj 226 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 964 1;
+#X obj 235 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 377 1;
+#X obj 244 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 534 1;
+#X obj 254 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 700 1;
+#X obj 263 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 409 1;
+#X obj 272 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 330 1;
+#X obj 281 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 238 1;
+#X obj 291 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 250 1;
+#X obj 300 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 229 1;
+#X obj 309 22 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 243 1;
+#X obj 216 -1 unpack f f f f f f f f f f f f;
+#X obj 162 154 spigot;
+#X obj 193 132 tgl 21 0 empty empty empty 0 -6 0 8 -258699 -1 -1 1
+1;
+#X floatatom 217 158 3 0 0 0 - - -;
+#X floatatom 226 174 3 0 0 0 - - -;
+#X floatatom 237 158 3 0 0 0 - - -;
+#X floatatom 246 174 3 0 0 0 - - -;
+#X floatatom 257 158 3 0 0 0 - - -;
+#X floatatom 266 175 3 0 0 0 - - -;
+#X floatatom 277 159 3 0 0 0 - - -;
+#X floatatom 286 176 3 0 0 0 - - -;
+#X floatatom 297 160 3 0 0 0 - - -;
+#X floatatom 306 176 3 0 0 0 - - -;
+#X floatatom 317 160 3 0 0 0 - - -;
+#X obj 11 0 cnv 15 30 52 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 71 428 s f2;
+#X obj 112 429 s f3;
+#X obj 160 426 s f4;
+#X obj 198 427 s f5;
+#X obj 238 426 s f6;
+#X obj 278 427 s f7;
+#X obj 315 426 s f8;
+#X obj 364 429 s f9;
+#X obj 422 429 s f10;
+#X obj 501 430 s f11;
+#X obj 16 424 s f1;
+#X obj 107 25 inlet;
+#X obj 107 49 tgl 30 0 empty empty empty 0 -6 0 8 -225271 -258699 -1
+1 1;
+#X floatatom 171 54 3 0 0 0 - - -;
+#X obj 142 16 r ib;
+#X obj 751 437 print valll;
+#X obj 756 341 line;
+#X msg 753 315 \$1 40;
+#X obj 142 79 s \$0-metbonk;
+#X msg 142 52 39;
+#X obj 686 519 unpack;
+#X floatatom 686 569 0 0 0 0 - - -;
+#X msg 592 352 print;
+#X floatatom 700 546 0 0 0 0 - - -;
+#X obj 686 479 route 1 2 3 4;
+#X obj 769 519 unpack;
+#X floatatom 769 569 0 0 0 0 - - -;
+#X floatatom 783 546 0 0 0 0 - - -;
+#X obj 853 519 unpack;
+#X floatatom 853 569 0 0 0 0 - - -;
+#X floatatom 867 546 0 0 0 0 - - -;
+#X obj 544 519 unpack;
+#X floatatom 544 569 0 0 0 0 - - -;
+#X floatatom 558 546 0 0 0 0 - - -;
+#X floatatom 621 569 0 0 0 0 - - -;
+#X text 824 438 number of pitch outlets (1-3 \, default 1);
+#X text 824 460 number of peaks to find (1-100 \, default 20);
+#X text 824 482 number of peaks to output (default 0.);
+#X msg 596 10 amp-range 40 50;
+#X msg 594 130 reattack 100 10;
+#X msg 593 185 npartial 7;
+#X msg 593 73 vibrato 50 0.5;
+#X text 715 -6 a low and high amplitude threshold: if signal amplitude
+is below the low threshold \, no pitches or peaks are output. The high
+threshold is a minimum at which "cooked" outputs may appear.;
+#X text 715 55 A period in milliseconds (50) over which the raw pitch
+may not deviate more than an interval in half-tones (0.5) from the
+average pitch to report it as a note to the "cooked" pitch outlet.
+;
+#X text 715 116 A period in milliseconds (100) over which a re-attack
+is reported if the amplitude rises more than (1) dB. The re-attack
+will result in a "bang" in the attack outlet and may give rise to repeated
+notes in the cooked pitch output.;
+#X obj 565 448 fiddle~ 1024 1 20 3;
+#X text 693 593 individual sinusoidal components;
+#X text 621 591 amplitude;
+#X text 631 606 (dB);
+#X text 544 591 raw pitch;
+#X text 531 615 and amplitude;
+#X text 519 632 (up to 3 outputs);
+#X text 700 448 ------ arguments:;
+#X msg 595 234 auto 1;
+#X msg 595 256 auto 0;
+#X msg 594 321 bang;
+#X text 716 319 poll current values --- useful if not in auto mode
+\,;
+#X text 715 177 Higher partials are weighed less strongly than lower
+ones in determining the pitch. This specifies the number of the partial
+(7) which will be weighted half as strongly as the fundamental.;
+#X text 715 238 start and stop "auto" mode (on by default.) If off
+\, output only appears on "bang" (poll mode).;
+#X text 716 351 print out all settings;
+#X text 824 416 window size (128-2048 \, default 1024);
+#X msg 595 278 npoints 2048;
+#X text 717 287 number of points in analysis window (power of 2 \,
+128-2048);
+#X msg 594 299 npoints 1024;
+#X obj 432 562 print attack;
+#X obj 341 562 print pitch;
+#X text 438 582 bang on;
+#X text 438 604 attack;
+#X text 336 582 cooked pitch;
+#X text 353 599 output;
+#X obj 164 510 outlet;
+#X obj 107 120 metro 100;
+#X obj 85 -31 inlet;
+#X obj 421 -4 env~;
+#X obj 475 108 s EMval;
+#X obj 421 164 vsl 10 128 0 127 0 0 empty empty empty 0 -8 0 8 -261689
+-1 -1 0 1;
+#X obj 421 134 spigot;
+#X obj 452 112 tgl 21 0 empty empty empty 0 -6 0 8 -258699 -1 -1 0
+1;
+#X floatatom 421 300 3 0 0 0 - - -;
+#X msg 55 538 start;
+#X msg 57 564 stop;
+#X obj 45 628 writesf~ 2;
+#X msg 46 476 open /home/benjamin/ghz01.wav;
+#X obj 16 506 *~ 1;
+#X obj -13 -2 gemhead 1;
+#X obj 9 16 t b a;
+#X obj 451 298 print f1;
+#X obj 42 365 maxlib/scale 15.79 100 0 100;
+#X obj 104 510 outlet~;
+#X obj 52 -41 adc~;
+#X obj 52 -20 hip~ 15;
+#X connect 1 0 2 0;
+#X connect 1 0 20 0;
+#X connect 1 0 104 0;
+#X connect 2 0 121 0;
+#X connect 2 1 34 0;
+#X connect 2 2 35 0;
+#X connect 2 3 36 0;
+#X connect 2 4 37 0;
+#X connect 2 5 38 0;
+#X connect 2 6 39 0;
+#X connect 2 7 40 0;
+#X connect 2 8 41 0;
+#X connect 2 9 42 0;
+#X connect 2 10 43 0;
+#X connect 3 0 105 1;
+#X connect 4 0 1 0;
+#X connect 4 0 117 0;
+#X connect 5 0 4 1;
+#X connect 6 0 5 0;
+#X connect 7 0 1 0;
+#X connect 8 0 22 0;
+#X connect 9 0 23 0;
+#X connect 10 0 24 0;
+#X connect 11 0 25 0;
+#X connect 12 0 26 0;
+#X connect 13 0 27 0;
+#X connect 14 0 28 0;
+#X connect 15 0 29 0;
+#X connect 16 0 30 0;
+#X connect 17 0 31 0;
+#X connect 18 0 32 0;
+#X connect 19 0 8 0;
+#X connect 19 1 9 0;
+#X connect 19 2 10 0;
+#X connect 19 3 11 0;
+#X connect 19 4 12 0;
+#X connect 19 5 13 0;
+#X connect 19 6 14 0;
+#X connect 19 7 15 0;
+#X connect 19 8 16 0;
+#X connect 19 9 17 0;
+#X connect 19 10 18 0;
+#X connect 20 0 19 0;
+#X connect 21 0 20 1;
+#X connect 45 0 46 0;
+#X connect 46 0 105 0;
+#X connect 47 0 52 0;
+#X connect 48 0 53 0;
+#X connect 51 0 50 0;
+#X connect 53 0 52 0;
+#X connect 54 0 55 0;
+#X connect 54 1 57 0;
+#X connect 56 0 79 0;
+#X connect 58 0 54 0;
+#X connect 58 1 59 0;
+#X connect 58 2 62 0;
+#X connect 59 0 60 0;
+#X connect 59 1 61 0;
+#X connect 62 0 63 0;
+#X connect 62 1 64 0;
+#X connect 65 0 66 0;
+#X connect 65 1 67 0;
+#X connect 72 0 79 0;
+#X connect 73 0 79 0;
+#X connect 74 0 79 0;
+#X connect 75 0 79 0;
+#X connect 79 0 99 0;
+#X connect 79 1 98 0;
+#X connect 79 2 65 0;
+#X connect 79 3 68 0;
+#X connect 79 4 58 0;
+#X connect 87 0 79 0;
+#X connect 88 0 79 0;
+#X connect 89 0 79 0;
+#X connect 95 0 79 0;
+#X connect 97 0 79 0;
+#X connect 105 0 1 0;
+#X connect 106 0 6 0;
+#X connect 107 0 108 0;
+#X connect 107 0 110 0;
+#X connect 109 0 112 0;
+#X connect 110 0 109 0;
+#X connect 111 0 110 1;
+#X connect 113 0 115 0;
+#X connect 114 0 115 0;
+#X connect 116 0 115 0;
+#X connect 117 0 115 0;
+#X connect 117 0 115 1;
+#X connect 117 0 122 0;
+#X connect 118 0 119 0;
+#X connect 119 0 1 0;
+#X connect 121 0 44 0;
+#X connect 123 0 124 0;
+#X connect 123 1 124 0;
+#X connect 124 0 4 0;
+#X connect 124 0 107 0;
